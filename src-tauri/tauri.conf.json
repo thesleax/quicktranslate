@@ -1,0 +1,56 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "QuickTranslate",
+  "version": "1.0.0",
+  "identifier": "com.quicktranslate.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "QuickTranslate",
+        "width": 420,
+        "height": 620,
+        "resizable": false,
+        "maximizable": false,
+        "center": true,
+        "visible": false,
+        "decorations": true,
+        "alwaysOnTop": false,
+        "minWidth": 420,
+        "minHeight": 620
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://translate.googleapis.com https://*.googleapis.com ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/64x64.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico",
+      "icons/Square284x284Logo.png"
+    ],
+    "resources": [],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "displayLanguageSelector": false,
+        "languages": ["Turkish", "English"],
+        "sidebarImage": "icons/Square310x310Logo.png"
+      }
+    }
+  }
+}
